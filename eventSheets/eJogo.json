@@ -1,0 +1,872 @@
+{
+	"name": "eJogo",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "VIDA",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 180772934840827
+		},
+		{
+			"eventType": "variable",
+			"name": "Pontos",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 472061486425394
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 738236165218733
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "VIDA_HUD",
+					"sid": 396732787979838,
+					"parameters": {
+						"animation": "\"\"&VIDA",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 682517775406277
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 294459286496715,
+					"parameters": {
+						"variable": "VIDA",
+						"comparison": 2,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 118787125253094
+				},
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 850706543485026
+				}
+			],
+			"sid": 752930545771793
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ANIMACOES",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Teclado",
+							"sid": 730025721425855,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "jOGADO",
+							"sid": 545195307937669,
+							"behaviorType": "Plataforma",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "jOGADO",
+							"sid": 181196172471942,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 355585441527452
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Teclado",
+							"sid": 758823959832088,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "jOGADO",
+							"sid": 459774376870928,
+							"behaviorType": "Plataforma",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "jOGADO",
+							"sid": 862218530110258,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 184370376180556
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Teclado",
+							"sid": 763464845138056,
+							"parameters": {
+								"key": 87
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "jOGADO",
+							"sid": 422246077002766,
+							"behaviorType": "Plataforma",
+							"parameters": {
+								"control": "jump"
+							}
+						}
+					],
+					"sid": 805458687326775
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-stopped",
+							"objectClass": "jOGADO",
+							"sid": 644332138128767,
+							"behaviorType": "Plataforma"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "jOGADO",
+							"sid": 309259715580594,
+							"parameters": {
+								"animation": "\"IDLE\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 439302643867313
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-jumping",
+							"objectClass": "jOGADO",
+							"sid": 915438015467845,
+							"behaviorType": "Plataforma"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "jOGADO",
+							"sid": 182766293815923,
+							"parameters": {
+								"animation": "\"JUMP\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 583375831506309
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-landed",
+							"objectClass": "jOGADO",
+							"sid": 218898662782534,
+							"behaviorType": "Plataforma"
+						}
+					],
+					"actions": [],
+					"sid": 885399122918685,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-moving",
+									"objectClass": "jOGADO",
+									"sid": 648001468330761,
+									"behaviorType": "Plataforma"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "jOGADO",
+									"sid": 696334157632551,
+									"parameters": {
+										"animation": "\"RUN\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 565668824818193
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 784574317255631
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "jOGADO",
+									"sid": 794729593156508,
+									"parameters": {
+										"animation": "\"IDLE\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 783644553174704
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "jOGADO",
+							"sid": 388891509364650,
+							"behaviorType": "Plataforma"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "jOGADO",
+							"sid": 590644621205905,
+							"parameters": {
+								"animation": "\"RUN\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 834595634733384
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Teclado",
+							"sid": 153483832370188,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "jOGADO",
+							"sid": 574258330496605,
+							"parameters": {
+								"animation": "\"ATACK\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 529608537236751
+				}
+			],
+			"sid": 890218174626222
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "INIMIGOS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 789684009049982,
+							"parameters": {
+								"instance-variable": "DIRECAO",
+								"comparison": 0,
+								"value": "\"DIREITA\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 886724234932001,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 119685938179957,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 271223453869941
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 234253464576524,
+							"parameters": {
+								"instance-variable": "DIRECAO",
+								"comparison": 0,
+								"value": "\"ESQUERDA\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 661959531581262,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 847882757528330,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 756698063028297
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 516405048578105,
+							"parameters": {
+								"object": "Sensor_patrulheiroesquerda"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 309843443297480,
+							"parameters": {
+								"instance-variable": "DIRECAO",
+								"value": "\"ESQUERDA\""
+							}
+						}
+					],
+					"sid": 342925435316516
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 210888928976992,
+							"parameters": {
+								"object": "Sensor_patrulheirodireita"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 607555703238136,
+							"parameters": {
+								"instance-variable": "DIRECAO",
+								"value": "\"DIREITA\""
+							}
+						}
+					],
+					"sid": 912422465510077
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "jOGADO",
+							"sid": 270620933766041,
+							"parameters": {
+								"object": "Porco_patrulheiro"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "jOGADO",
+							"sid": 125972882745517,
+							"parameters": {
+								"animation": "\"ATACK\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 702452092909157,
+							"parameters": {
+								"animation": "\"DIE\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 383494302271671,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 941273339421440,
+							"behaviorType": "Platform",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 666385796259653
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 232495532191267,
+							"parameters": {
+								"animation": "\"DIE\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 839362632800000,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 283871141383296,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 121176281758109
+						}
+					],
+					"sid": 331465735913515
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "jOGADO",
+							"sid": 291089871180752,
+							"parameters": {
+								"object": "Porco_patrulheiro"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "jOGADO",
+							"sid": 427791537588102,
+							"parameters": {
+								"animation": "\"ATACK\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Porco_patrulheiro",
+							"sid": 612160354070142,
+							"parameters": {
+								"animation": "\"DIE\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "jOGADO",
+							"sid": 551665116428343,
+							"parameters": {
+								"animation": "\"HIT\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 421404976537864,
+							"parameters": {
+								"variable": "VIDA",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 268981226213938
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "jOGADO",
+							"sid": 930714597472099,
+							"parameters": {
+								"animation": "\"HIT\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "jOGADO",
+							"sid": 829796912468958,
+							"parameters": {
+								"animation": "\"IDLE\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 538975981187014
+				}
+			],
+			"sid": 512239457903981
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "cONTRUCOES",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Caixa",
+							"sid": 465817707677279,
+							"parameters": {
+								"object": "jOGADO"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "jOGADO",
+							"sid": 168498687947082,
+							"parameters": {
+								"animation": "\"ATACK\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Caixa",
+							"sid": 802353517170419,
+							"parameters": {
+								"animation": "\"Quebrada\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Caixa",
+							"sid": 297312905699585,
+							"behaviorType": "Sólido",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 919363424968713
+				}
+			],
+			"sid": 819106726627003
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "jOGADO",
+					"sid": 790225706896862,
+					"parameters": {
+						"object": "Porta"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Porta",
+					"sid": 581055540691374,
+					"parameters": {
+						"animation": "\"Abrindo\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 287240519199230
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-finished",
+					"objectClass": "Porta",
+					"sid": 474302608312030,
+					"parameters": {
+						"animation": "\"Abrindo\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "jOGADO",
+					"sid": 255809433631359,
+					"behaviorType": "Plataforma",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "jOGADO",
+					"sid": 575230856000498,
+					"parameters": {
+						"animation": "\"PORTA\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 489529769151237,
+					"parameters": {
+						"seconds": "2.0"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Porta",
+					"sid": 215379014900786,
+					"parameters": {
+						"animation": "\"Fechada\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 115101376118610
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "BTN_Enviar",
+					"sid": 746877955929711
+				}
+			],
+			"actions": [
+				{
+					"id": "post-to-url",
+					"objectClass": "AJAX",
+					"sid": 336342830874123,
+					"parameters": {
+						"tag": "\"Enviar\"",
+						"url": "\"https://projeto-jogo-d6481-default-rtdb.firebaseio.com/ranking.json\"",
+						"data": "\"{\"\"\"&TXP_Nome.Text&\"\"\" : \"&TXP_Pontos.Text&\"}\"",
+						"method": "\"PATCH\""
+					}
+				}
+			],
+			"sid": 273228952584093
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "BTN_Atualizar",
+					"sid": 557064866528990
+				}
+			],
+			"actions": [
+				{
+					"id": "request-url",
+					"objectClass": "AJAX",
+					"sid": 663790035437482,
+					"parameters": {
+						"tag": "\"Atualizar\"",
+						"url": "\"https://projeto-jogo-d6481-default-rtdb.firebaseio.com/ranking.json\""
+					}
+				}
+			],
+			"sid": 553986249276257
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 203756492313015,
+					"parameters": {
+						"tag": "\"Atualizar\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 861375144262558,
+					"parameters": {
+						"variable": "Pontos",
+						"value": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 580833660055559,
+					"parameters": {
+						"variable": "Pontos",
+						"value": "replace(Pontos,\"{\",\"\")"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 388744195954505,
+					"parameters": {
+						"variable": "Pontos",
+						"value": "replace(Pontos,\"}\",\"\")"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 216382161542810,
+					"parameters": {
+						"variable": "Pontos",
+						"value": "replace(Pontos,\"\"\"\",\"\")"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 217063149291567,
+					"parameters": {
+						"variable": "Pontos",
+						"value": "replace(Pontos,\",\",newline)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TXT_Ranking",
+					"sid": 766794685312756,
+					"parameters": {
+						"text": "Pontos"
+					}
+				}
+			],
+			"sid": 472072752227487
+		}
+	],
+	"sid": 266454637419441
+}
