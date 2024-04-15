@@ -1,0 +1,289 @@
+{
+	"name": "Caixa",
+	"plugin-id": "Sprite",
+	"sid": 806264692506697,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Sólido",
+			"sid": 219502214413024
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 21,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 30835,
+						"collisionPoly": {
+							"points": [
+								0.08866995073891625,
+								0.05000000000000002,
+								0.9080459770114944,
+								0.05,
+								0.9064039408866996,
+								0.9465517241379321,
+								0.08866995073891623,
+								0.9465517241379314
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 408983965863711,
+				"name": "Normal",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 21,
+						"height": 19,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7093927,
+						"collisionPoly": {
+							"points": [
+								0.08866995073891625,
+								0.05000000000000002,
+								0.9080459770114944,
+								0.05,
+								0.9064039408866996,
+								0.9465517241379321,
+								0.08866995073891623,
+								0.9465517241379314
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 23,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8699458,
+						"collisionPoly": {
+							"points": [
+								0.08866995073891625,
+								0.05000000000000002,
+								0.9080459770114944,
+								0.05,
+								0.9064039408866996,
+								0.9465517241379321,
+								0.08866995073891623,
+								0.9465517241379314
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 23,
+						"height": 19,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9308608,
+						"collisionPoly": {
+							"points": [
+								0.08866995073891625,
+								0.05000000000000002,
+								0.9080459770114944,
+								0.05,
+								0.9064039408866996,
+								0.9465517241379321,
+								0.08866995073891623,
+								0.9465517241379314
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 23,
+						"height": 19,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4754866,
+						"collisionPoly": {
+							"points": [
+								0.08866995073891625,
+								0.05000000000000002,
+								0.9080459770114944,
+								0.05,
+								0.9064039408866996,
+								0.9465517241379321,
+								0.08866995073891623,
+								0.9465517241379314
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 198046316908073,
+				"name": "Espiando",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 3
+			},
+			{
+				"frames": [
+					{
+						"width": 21,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7786893,
+						"collisionPoly": {
+							"points": [
+								0.08866995073891625,
+								0.05000000000000002,
+								0.9080459770114944,
+								0.05,
+								0.9064039408866996,
+								0.9465517241379321,
+								0.08866995073891623,
+								0.9465517241379314
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 912166329068458,
+				"name": "Hit",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 126147,
+						"collisionPoly": {
+							"points": [
+								0.08866995073891625,
+								0.05000000000000002,
+								0.9080459770114944,
+								0.05,
+								0.9064039408866996,
+								0.9465517241379321,
+								0.08866995073891623,
+								0.9465517241379314
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4570412,
+						"collisionPoly": {
+							"points": [
+								0.08866995073891625,
+								0.05000000000000002,
+								0.9080459770114944,
+								0.05,
+								0.9064039408866996,
+								0.9465517241379321,
+								0.08866995073891623,
+								0.9465517241379314
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2835947,
+						"collisionPoly": {
+							"points": [
+								0.08866995073891625,
+								0.05000000000000002,
+								0.9080459770114944,
+								0.05,
+								0.9064039408866996,
+								0.9465517241379321,
+								0.08866995073891623,
+								0.9465517241379314
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 523783849446061,
+				"name": "Quebrada",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 10
+			}
+		],
+		"subfolders": []
+	}
+}
